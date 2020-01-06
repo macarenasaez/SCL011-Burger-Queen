@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<section class="main-g">
+<section class="main-g animated fast fadeIn ">
 
-    <table class="table">
+    <table class="table  animated fast fadeIn ">
         <thead>
             <tr>
                 <th scope="col" class="table-primary">Mesa</th>
@@ -13,28 +13,50 @@
             <tr *ngFor="let table of tables">
 
                 <th scope="row">
-                    <button (click)="getTable(table.numbertable)" class="btntable" [routerLink]="['/menu']"> 
+                    <button (click)="getTable(table.numbertable)" class="btntable" [routerLink]="['/menu',10]"> 
                                 {{table.nametable}}
                     </button>
                 </th>
 
             </tr>
 
-            <button class="btn btn-success"><i class="fa fa-plus"></i> Agregar nueva mesa </button>
-
-
         </tbody>
     </table>
 
-    <div class="alert alert-info text-center mt-3" role="alert">
-        <h4 class="alert-heading">Cargando</h4>
-        <p>
-            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
-        </p>
-        <p class="mb-0">
-            Espere por favor
-        </p>
-    </div>
+    <app-loading class="animated fast fadeIn" *ngIf="loading"></app-loading>
+    <hr>
+    <h4>Agregar mesa</h4>
+    <hr>
+    <form (ngSubmit)="addtabls()">
+
+        <div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Nombre de mesa</label>
+                <div class="col-8">
+
+                    <input name="nametable" [(ngModel)]="table.nametable" class="form-control" type="text" placeholder="Nombre de mesa">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Numero de mesa</label>
+                <div class="col-8">
+                    <input name="numbertable" [(ngModel)]="table.numbertable" class="form-control" type="number" placeholder="Numero de mesa" minlength="6">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-8">
+                <button class="0" type="submit"><i class="fa fa-plus"></i> Agregar nueva mesa </button>
+            </div>
+        </div>
+
+    </form>
 
 
 </section>

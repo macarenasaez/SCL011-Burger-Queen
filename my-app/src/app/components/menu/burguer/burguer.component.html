@@ -1,34 +1,93 @@
 <section class="container-menu-Almz">
-    <h4>Hamburguesa</h4>
-    <article *ngFor="let item of burguer">
-        <p class="">{{item.name}}
-            <button class="btnn"><i class="fa fa-plus"></i></button>
-            <button class="btnn"><i class="far fa-trash-alt"></i></button>
-        </p>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Hamburguesa
+                    </button>
+                </h2>
+            </div>
 
-    </article>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
-    <h4>Relleno</h4>
-    <article *ngFor="let item of filling">
-        <p class="">{{item.name}}
-            <button class="btnn"><i class="fa fa-plus"></i></button>
-            <button class="btnn"><i class="far fa-trash-alt"></i></button>
-        </p>
+                <div class="card-body centerbtn" *ngFor="let item of burguer">{{item.name}}
+                    <button (click)="addItem(item.name, item.categoria)" class=" btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
+                    <button (click)="deleteItem()" class="btn btn-danger "><i class="far fa-trash-alt">Eliminar</i></button>
+                </div>
 
-    </article>
 
-    <h4>Acompañamiento</h4>
-    <article *ngFor="let item of accom">
-        <p class="">{{item.name}}
-            <button class="btnn"><i class="fa fa-plus"></i></button>
-            <button class="btnn"><i class="far fa-trash-alt"></i></button>
-        </p>
-    </article>
+            </div>
+        </div>
+    </div>
 
-    <h4>Bebidas</h4>
-    <article *ngFor="let item of drinks">
-        <p class="">{{item.name}}
-            <button class="btnn"><i class="fa fa-plus"></i></button>
-            <button class="btnn"><i class="far fa-trash-alt"></i></button>
-        </p>
-    </article>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Relleno
+                  </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                <div class="card-body centerbtn" *ngFor="let item of filling">{{item.name}}
+                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Acompañamiento
+                      </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                <div class="card-body centerbtn" *ngFor="let item of accom">{{item.name}}
+                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Bebidas
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                <div class="card-body centerbtn" *ngFor="let item of drinks">{{item.name}}
+                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule} from '@angular/forms';
+
 //Modulos de firebase
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -28,6 +30,7 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { MesasComponent } from './components/mesas/mesas.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BurguerComponent } from './components/menu/burguer/burguer.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 
 @NgModule({
@@ -40,12 +43,14 @@ import { BurguerComponent } from './components/menu/burguer/burguer.component';
     NavbarComponent,
     BurguerComponent,
     FilterPipe,
+    LoadingComponent,
     
   ],
     imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // Necesario para las funciones de base de datos
     AngularFireAuthModule, // Necesario para las funciones de autentificacion

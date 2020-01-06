@@ -1,16 +1,14 @@
 .container-menu-Almz {
+    width: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: center !important;
+    margin-left: 30px;
+    margin-top: 25px;
 }
 
-.btnn {
-    background-color: rgba(48, 48, 49, 0.1);
-    border-radius: 4px;
-    margin-top: 5px;
-    border: 0;
-    color: #303031;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+.centerbtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

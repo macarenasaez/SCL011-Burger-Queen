@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { menuModel } from '../../../models/menu.model';
 import { WaiqueenService} from '../../../services/waiqueen.service';
+import { orderModel } from '../../../models/order.model';
 
 
 @Component({
@@ -8,6 +9,8 @@ import { WaiqueenService} from '../../../services/waiqueen.service';
   templateUrl: './burguer.component.html',
   styleUrls: ['./burguer.component.css']
 })
+
+
 export class BurguerComponent implements OnInit {
 
   //Varible para almacenar lo que retorna la funcion que esta alojada en el servicio
@@ -18,8 +21,12 @@ export class BurguerComponent implements OnInit {
   filling:menuModel[]=[];
   bFast:menuModel[]=[];
   accom:menuModel[]=[];
+  //Variable para almacenar orden
+  arrayOrder: Array<orderModel> = [];
+  objOrder: orderModel = { burguer: 'no desea', filling: 'no desea', acomp:'no desea',
+    drink:'no desea',
+    total: 0, id:'no desea' };
 
-  
   //inyecto mi servicion
   constructor(private waiqueenservice:WaiqueenService) { }
 
@@ -61,6 +68,32 @@ export class BurguerComponent implements OnInit {
   }
   
 
+ addItem(name:string, categoria:string){
+   console.log('-----------------------');
+   console.log(categoria);
+   console.log('-----------------------');
+   switch (categoria) {
+     case 'Hamburguesas':
+      this.objOrder['burguer'] = name
+       break;
+       case 'Relleno':
+        this.objOrder['filling'] = name
+        break;
+        case 'Bebidas':
+          this.objOrder['drink'] = name
+          break;
+          case 'Acompañamientos':
+            this.objOrder['acomp'] = name
+            break;
+   }
+
+  this.arrayOrder.push(this.objOrder);
   
+   console.log(this.arrayOrder);
+ }
+
+ deleteItem(){
+   console.log('btn eliminar okey');
+ }
 
 }

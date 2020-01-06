@@ -4,12 +4,23 @@ import { startScreenComponent } from './components/startScreen/startScreen.compo
 import { MenuComponent } from './components/menu/menu.component';
 import { PedidosComponent } from "../app/components/pedidos/pedidos.component";
 import { MesasComponent } from './components/mesas/mesas.component';
+import { BurguerComponent } from './components/menu/burguer/burguer.component';
+
+
 
 
 const ROUTES: Routes = [
 { path: 'home', component:startScreenComponent },
 { path: 'pedidos', component: PedidosComponent},
-{ path: 'menu', component:MenuComponent },
+
+{ 
+  path: 'menu/:id', 
+  component:MenuComponent,
+  children:[
+    { path: 'burguer', component: BurguerComponent},
+  ]
+},
+
 { path: 'pedidos', component:PedidosComponent},
 { path: 'mesas', component:MesasComponent },
 { path: '', pathMatch: 'full', redirectTo: 'home' },
