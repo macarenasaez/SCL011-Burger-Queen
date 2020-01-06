@@ -1,10 +1,10 @@
 export class orderModel{
 
     id:string;
-    burguer:string;
-    filling:string;
-    acomp:string;
-    drink:string;
-    total:number;
+    categoria:string;
+    name:string;
+    price:number;
+    
+
 
 }

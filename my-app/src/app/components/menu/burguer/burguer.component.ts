@@ -4,6 +4,7 @@ import { WaiqueenService} from '../../../services/waiqueen.service';
 import { orderModel } from '../../../models/order.model';
 
 
+
 @Component({
   selector: 'app-burguer',
   templateUrl: './burguer.component.html',
@@ -12,6 +13,17 @@ import { orderModel } from '../../../models/order.model';
 
 
 export class BurguerComponent implements OnInit {
+ //Variable que almacena el total
+ total:number = 0;
+ //Variable para almacenar orden
+ arrayOrder: Array<orderModel> = [];
+ objOrder: orderModel = { 
+                         categoria: '',
+                         name: '', 
+                         price: 0,
+                          id:''
+                       };
+
 
   //Varible para almacenar lo que retorna la funcion que esta alojada en el servicio
   menus: menuModel[]=[];
@@ -21,17 +33,15 @@ export class BurguerComponent implements OnInit {
   filling:menuModel[]=[];
   bFast:menuModel[]=[];
   accom:menuModel[]=[];
-  //Variable para almacenar orden
-  arrayOrder: Array<orderModel> = [];
-  objOrder: orderModel = { burguer: 'no desea', filling: 'no desea', acomp:'no desea',
-    drink:'no desea',
-    total: 0, id:'no desea' };
+  
 
   //inyecto mi servicion
-  constructor(private waiqueenservice:WaiqueenService) { }
+  constructor(private waiqueenservice:WaiqueenService) { 
+    console.log('Servicio activo');
+  }
 
-  ngOnInit() {
-
+  ngOnInit() { 
+  //Filtrado de data segun categoria
     const filter = (array, type) => {
       const result = array.filter((element=>{
         if(type === 'burguer'){
@@ -57,40 +67,35 @@ export class BurguerComponent implements OnInit {
         .subscribe( (resp: any) => {
           this.menus = resp;
           console.log('entro');
-         // console.log(this.menus);
+         console.log(this.menus);
           this.burguer =  filter(this.menus, 'burguer')
           this.drinks =  filter(this.menus, 'drinks')
           this.bFast =  filter(this.menus, 'bFast')
           this.filling =  filter(this.menus, 'filling')
           this.accom =  filter(this.menus, 'accom')
-          console.log(this.burguer);
+         
         })
   }
-  
-
- addItem(name:string, categoria:string){
-   console.log('-----------------------');
-   console.log(categoria);
-   console.log('-----------------------');
-   switch (categoria) {
-     case 'Hamburguesas':
-      this.objOrder['burguer'] = name
-       break;
-       case 'Relleno':
-        this.objOrder['filling'] = name
-        break;
-        case 'Bebidas':
-          this.objOrder['drink'] = name
-          break;
-          case 'Acompañamientos':
-            this.objOrder['acomp'] = name
-            break;
+  addItem(name:string, price:number ,categoria:string){
+    // console.log(`${name} ${price} ${categoria}`);
+    
+     this.objOrder.categoria = categoria;
+     this.objOrder.name = name;
+     this.objOrder.price = price;
+     this.total += this.objOrder.price;
+    // this.objOrder.total = this.objOrder.total + price;
+     console.log(this.objOrder);
+    
+     this.arrayOrder.push(this.objOrder);
+     
+     this.objOrder = {id:'', categoria: '', name: '',  price: 0}
+    
+     console.log(`Este es el total ${this.total}`);
+     console.log(this.arrayOrder);
+     
    }
-
-  this.arrayOrder.push(this.objOrder);
+ 
   
-   console.log(this.arrayOrder);
- }
 
  deleteItem(){
    console.log('btn eliminar okey');

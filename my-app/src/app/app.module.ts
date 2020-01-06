@@ -31,6 +31,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BurguerComponent } from './components/menu/burguer/burguer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { GetOrderComponent } from './components/menu/get-order/get-order.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     BurguerComponent,
     FilterPipe,
     LoadingComponent,
+    GetOrderComponent,
     
   ],
     imports: [

@@ -1,93 +1,127 @@
-<section class="container-menu-Almz">
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+<section class="containert">
+    <section class="container-menu-Almz">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Hamburguesa
                     </button>
-                </h2>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-
-                <div class="card-body centerbtn" *ngFor="let item of burguer">{{item.name}}
-                    <button (click)="addItem(item.name, item.categoria)" class=" btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
-                    <button (click)="deleteItem()" class="btn btn-danger "><i class="far fa-trash-alt">Eliminar</i></button>
+                    </h2>
                 </div>
 
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
+                    <div class="card-body centerbtn" *ngFor="let item of burguer">
+                        {{item.name}} ${{item.price}}
+                        <button (click)="addItem(item.name, item.price, item.categoria)" class=" btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
+                        <button (click)="deleteItem()" class="btn btn-danger "><i class="far fa-trash-alt">Eliminar</i></button>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
 
 
 
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Relleno
                   </button>
-                </h2>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-
-                <div class="card-body centerbtn" *ngFor="let item of filling">{{item.name}}
-                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
-                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </h2>
                 </div>
 
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
+                    <div class="card-body centerbtn" *ngFor="let item of filling">{{item.name}} ${{item.price}}
+                        <button (click)="addItem(item.name, item.price, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                        <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Acompañamiento
                       </button>
-                </h2>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-
-                <div class="card-body centerbtn" *ngFor="let item of accom">{{item.name}}
-                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
-                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </h2>
                 </div>
 
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
+                    <div class="card-body centerbtn" *ngFor="let item of accom">{{item.name}} ${{item.price}}
+                        <button (click)="addItem(item.name, item.price, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                        <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Bebidas
                     </button>
-                </h2>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-
-                <div class="card-body centerbtn" *ngFor="let item of drinks">{{item.name}}
-                    <button (click)="addItem(item.name, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
-                    <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </h2>
                 </div>
 
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
+                    <div class="card-body centerbtn" *ngFor="let item of drinks">{{item.name}} ${{item.price}}
+                        <button (click)="addItem(item.name, item.price, item.categoria)" class="btn btn-success"><i class="fa fa-plus"></i>Agregar</button>
+                        <button class="btn btn-danger"><i class="far fa-trash-alt">Eliminar</i></button>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="container-pedido">
+        <table class="table">
+            <thead>
+                <tr class="table-info">
+
+                    <th scope="col">Item</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Borrar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of arrayOrder">
+                    <th scope="row">{{item.name}} </th>
+                    <td>${{item.price}}</td>
+                    <td> <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+
+
+
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td>${{total}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="contenbutton">
+            <button class="btn btn-info">Enviar pedido</button>
+        </div>
+    </section>
 </section>
