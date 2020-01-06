@@ -4,7 +4,6 @@ import { WaiqueenService} from '../../../services/waiqueen.service';
 import { orderModel } from '../../../models/order.model';
 
 
-
 @Component({
   selector: 'app-burguer',
   templateUrl: './burguer.component.html',
