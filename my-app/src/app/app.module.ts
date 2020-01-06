@@ -32,7 +32,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BurguerComponent } from './components/menu/burguer/burguer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { GetOrderComponent } from './components/menu/get-order/get-order.component';
-
+import { BreakfastsComponent }from './components/menu/breakfasts/breakfasts.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { GetOrderComponent } from './components/menu/get-order/get-order.compone
     MesasComponent,
     NavbarComponent,
     BurguerComponent,
+    BreakfastsComponent,
     FilterPipe,
     LoadingComponent,
     GetOrderComponent,
