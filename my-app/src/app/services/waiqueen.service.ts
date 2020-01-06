@@ -27,7 +27,9 @@ export class WaiqueenService {
 
 constructor(private afs: AngularFirestore) {
 
-    //Peticion de coleccion de mesas
+//------------------------------ Mesas -------------------------------------------------//
+   
+//Peticion de coleccion de mesas
        this.tablsCollection = afs.collection<TablsModel>('mesas');
     //Guardo coleccion en array
        this.arrayTabls = this.tablsCollection.snapshotChanges().pipe(
@@ -38,6 +40,8 @@ constructor(private afs: AngularFirestore) {
         }))
       );
 
+
+//------------------------------ Menu -------------------------------------------------//
     //Peticion de coleccion menu
     this.menuCollection = afs.collection<menuModel>('menu');
      //Guardo coleccion en array
@@ -49,21 +53,22 @@ constructor(private afs: AngularFirestore) {
       }))
     );
   }
-
+//------------------------------ Menu -------------------------------------------------//
   //Funcion que retorna la data de mesa en un array
     getTabls(){
+      console.log('retornara la data');
       return this.arrayTabls;
     }
 
   
     //Funcion que retorna la data de menu en un array
     getmens(){
-      // const casa = this.arraymens.pipe(filter(element => {
-      //   console.log(element);
-      // }))
-      // console.log('-------------------------');
-      // console.log(casa);
       return this.arraymens
     }
+
+//------------------------------ Mesas -------------------------------------------------//
+addItem(mesas:TablsModel) {
+  this.tablsCollection.add(mesas);
+  
 }
-//pipe(filter(ev => ev.target.tagName === 'DIV'));
+}
