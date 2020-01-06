@@ -5,6 +5,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { PedidosComponent } from "../app/components/pedidos/pedidos.component";
 import { MesasComponent } from './components/mesas/mesas.component';
 import { BurguerComponent } from './components/menu/burguer/burguer.component';
+import { BreakfastsComponent } from './components/menu/breakfasts/breakfasts.component';
 
 
 
@@ -18,6 +19,7 @@ const ROUTES: Routes = [
   component:MenuComponent,
   children:[
     { path: 'burguer', component: BurguerComponent},
+    {path:'breakfasts',component:BreakfastsComponent},
   ]
 },
 
