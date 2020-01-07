@@ -1,0 +1,8 @@
+.container-menu-breakasf{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    margin-left: 30px;
+    margin-top: 25px;
+}
