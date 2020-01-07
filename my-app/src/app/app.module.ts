@@ -31,7 +31,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BurguerComponent } from './components/menu/burguer/burguer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
-
+import{BreakfastsComponent}from './components/menu/breakfasts/breakfasts.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     MesasComponent,
     NavbarComponent,
     BurguerComponent,
+    BreakfastsComponent,
     FilterPipe,
     LoadingComponent,
     
