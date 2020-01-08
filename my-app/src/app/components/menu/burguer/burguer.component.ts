@@ -19,7 +19,7 @@ export class BurguerComponent implements OnInit {
   burguer:menuModel[]=[]; 
   drinks:menuModel[]=[];
   filling:menuModel[]=[];
-  bFast:menuModel[]=[];
+  
   accom:menuModel[]=[];
   //Variable para almacenar orden
   arrayOrder: Array<orderModel> = [];
@@ -56,11 +56,8 @@ export class BurguerComponent implements OnInit {
    this.waiqueenservice.getmens()
         .subscribe( (resp: any) => {
           this.menus = resp;
-          console.log('entro');
-         // console.log(this.menus);
           this.burguer =  filter(this.menus, 'burguer')
           this.drinks =  filter(this.menus, 'drinks')
-          this.bFast =  filter(this.menus, 'bFast')
           this.filling =  filter(this.menus, 'filling')
           this.accom =  filter(this.menus, 'accom')
           console.log(this.burguer);
