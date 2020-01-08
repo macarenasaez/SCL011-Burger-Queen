@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MesasComponent } from './mesas.component';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
 
 describe('MesasComponent', () => {
   let component: MesasComponent;
@@ -8,7 +9,7 @@ describe('MesasComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MesasComponent ]
+      declarations: [ MesasComponent, NavbarComponent ]
     })
     .compileComponents();
   }));
