@@ -11,11 +11,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 //Modulo de peticiones http
 import { HttpClientModule } from '@angular/common/http'
 
-//Pipes
-import { FilterPipe } from './pipe/filter.pipe';
-
-
-
 //Rutas
 import { AppRoutingModule } from './app-routing.module';
 
@@ -33,6 +28,8 @@ import { BurguerComponent } from './components/menu/burguer/burguer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import{BreakfastsComponent}from './components/menu/breakfasts/breakfasts.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +40,8 @@ import{BreakfastsComponent}from './components/menu/breakfasts/breakfasts.compone
     NavbarComponent,
     BurguerComponent,
     BreakfastsComponent,
-    FilterPipe,
     LoadingComponent,
+    
     
   ],
     imports: [

@@ -1,49 +1,27 @@
-<section class="container-menu-breakasf">
-    <div class="accordion" id="accordionExample">
+<section class="container-menu-Almz">
+        <div class="accordion" id="accordionExample">
             <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Café
-                            </button>
-                        </h2>
-                  </div>
-
-             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body centerbtn" *ngFor="let item of bFast">{{item.name}}
-                 
-
-            </div>
-         </div>
-
-
-             <div class="accordion" id="accordionExample">
-                  <div class="card">
-                     <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Sandwich de jamón y queso
-                                </button>
-                            </h2>
-                        </div>
-
-            
-                                <div class="accordion" id="accordionExample">
-                                        <div class="card">
-                                          <div class="card-header" id="headingOne">
-                                            <h2 class="mb-0">
-                                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Jugo natural
-                                              </button>
-                                            </h2>
-                                          </div>
-
-
-
-
-
-        
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Desayuno
+                        </button>
+                    </h2>
+                </div>
     
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    
+                    <div class="card-body centerbtn" *ngFor="let item of bFast">{{item.name}}
+                        <button (click)="addItem(item.name, item.categoria)" class=" btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
+                        <button (click)="deleteItem()" class="btn btn-danger "><i class="far fa-trash-alt">Eliminar</i></button>
+                    </div>
+    
+    
+                </div>
+            </div>
+        </div>
+        
+    </section>
 
           
 

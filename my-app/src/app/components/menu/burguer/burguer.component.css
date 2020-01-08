@@ -1,14 +1,34 @@
-.container-menu-Almz {
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    margin-left: 30px;
-    margin-top: 25px;
-}
+/*Rutas del desayuno y almuerzo*/
 
 .centerbtn {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+
+/* Contenedor de items del menu */
+
+.container-menu-Almz {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    margin-left: 4em;
+    margin-top: 25px;
+}
+
+.container-pedido {
+    margin-top: 25px;
+    margin-left: 20em;
+    margin-right: 4em;
+}
+
+
+/*Boton Enviar pedido*/
+
+.contenbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

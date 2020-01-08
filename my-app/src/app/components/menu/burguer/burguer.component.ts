@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { menuModel } from '../../../models/menu.model';
 import { WaiqueenService} from '../../../services/waiqueen.service';
 import { orderModel } from '../../../models/order.model';
+import { orderfireModel } from '../../../models/orderfire.model';
 
 
 @Component({
@@ -12,6 +13,27 @@ import { orderModel } from '../../../models/order.model';
 
 
 export class BurguerComponent implements OnInit {
+  @Input() tableNumber: number = 0;
+ //Variable que almacena el total
+ total:number = 0;
+ //Variable de tipo objeto para almacenar la orden final que se enviara finalmente a firebase
+ objOrderF:orderfireModel = {
+  burguer:'',
+  filling:'',
+  acomp:'',
+  drinks:'',
+  total: 0,
+  mesa: 0
+
+ };
+ //Variable para almacenar orden
+ arrayOrder: Array<orderModel> = [];
+ objOrder: orderModel = { 
+                         categoria: '',
+                         name: '', 
+                         price: 0,
+                          id:''
+                       };
 
   //Varible para almacenar lo que retorna la funcion que esta alojada en el servicio
   menus: menuModel[]=[];
@@ -19,19 +41,17 @@ export class BurguerComponent implements OnInit {
   burguer:menuModel[]=[]; 
   drinks:menuModel[]=[];
   filling:menuModel[]=[];
-  bFast:menuModel[]=[];
+  
   accom:menuModel[]=[];
-  //Variable para almacenar orden
-  arrayOrder: Array<orderModel> = [];
-  objOrder: orderModel = { burguer: 'no desea', filling: 'no desea', acomp:'no desea',
-    drink:'no desea',
-    total: 0, id:'no desea' };
+  
 
   //inyecto mi servicion
-  constructor(private waiqueenservice:WaiqueenService) { }
+  constructor(private waiqueenservice:WaiqueenService) { 
+    console.log('Servicio activo');
+  }
 
-  ngOnInit() {
-
+  ngOnInit() { 
+  //Filtrado de data segun categoria
     const filter = (array, type) => {
       const result = array.filter((element=>{
         if(type === 'burguer'){
@@ -56,44 +76,63 @@ export class BurguerComponent implements OnInit {
    this.waiqueenservice.getmens()
         .subscribe( (resp: any) => {
           this.menus = resp;
-          console.log('entro');
-         // console.log(this.menus);
           this.burguer =  filter(this.menus, 'burguer')
           this.drinks =  filter(this.menus, 'drinks')
-          this.bFast =  filter(this.menus, 'bFast')
           this.filling =  filter(this.menus, 'filling')
           this.accom =  filter(this.menus, 'accom')
-          console.log(this.burguer);
+         
         })
   }
-  
+  addItem(name:string, price:number ,categoria:string){
+    
+     this.objOrder.categoria = categoria;
+     this.objOrder.name = name;
+     this.objOrder.price = price;
+     this.total += this.objOrder.price;
+     this.arrayOrder.push(this.objOrder);
+     this.objOrder = {id:'', categoria: '', name: '',  price: 0}
 
- addItem(name:string, categoria:string){
-   console.log('-----------------------');
-   console.log(categoria);
-   console.log('-----------------------');
-   switch (categoria) {
-     case 'Hamburguesas':
-      this.objOrder['burguer'] = name
-       break;
-       case 'Relleno':
-        this.objOrder['filling'] = name
-        break;
-        case 'Bebidas':
-          this.objOrder['drink'] = name
-          break;
-          case 'Acompañamientos':
-            this.objOrder['acomp'] = name
-            break;
    }
+ 
 
-  this.arrayOrder.push(this.objOrder);
+
+  //Funcion que elimina el Item
+  deleteItem(i, price){
+    //Obtengo el indice del objeto
+    this.arrayOrder.splice(i, 1);
+    this.total -= price; 
+    
+ }
   
-   console.log(this.arrayOrder);
- }
+     addOrderfire(){
+      
+     this.arrayOrder.forEach(element => {
+          switch (element.categoria) {
+            case 'Hamburguesas':
+             this.objOrderF['burguer'] =  element.name
+              break;
+              case 'Relleno':
+               this.objOrderF['filling'] =  element.name
+               break;
+               case 'Bebidas':
+                 this.objOrderF['drinks'] =  element.name
+                 break;
+                 case 'Acompañamientos':
+                   this.objOrderF['acomp'] =  element.name
+                  break;
+        };
+      this.objOrderF['total']= this.total  
+      
+    })
+    // return this.objOrderF;
+    this.waiqueenservice.addOrder(this.objOrderF)
+    this.objOrderF = {burguer:'', filling: '', acomp: '',  drinks:'', total: 0, mesa: 0}
+    this.arrayOrder = [];
+    this.total=0;
+  }
 
- deleteItem(){
-   console.log('btn eliminar okey');
- }
+
 
 }
+
+

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { menuModel } from 'src/app/models/menu.model';
 import { WaiqueenService} from '../../../services/waiqueen.service';
-import { type } from 'os';
-import { element } from 'protractor';
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'app-breakfasts',
@@ -12,30 +11,22 @@ import { element } from 'protractor';
 export class BreakfastsComponent implements OnInit {
 
 
-//variable de tipo array para guardar lo que retorna del servicio
+  //variable de tipo array para guardar lo que retorna del servicio
   menuBreakfast:menuModel[]=[];
-
-  
   //variable para guardar la data filtrada segun la categoria
-
   bFast:menuModel[]=[];
  
-  constructor(private _service:WaiqueenService ) { }
+  constructor(private waiqueenservice:WaiqueenService) { 
+    console.log("Servicio activo")
+  }
 
 
   ngOnInit() {
-
-    const filter =(array ,type)=>{
-      const resul = array.filter((element =>{
-        if(type === 'bFast'){
-          return element['categoria'] === 'Desayuno'
-        }
-
-      }))
-      return resul;
+        this.waiqueenservice.getmens().subscribe((resp:any)=>{
+        this.menuBreakfast=resp;
+        //= filter(this.menuBreakfast, 'Desayuno');
+        this.bFast  = this.menuBreakfast.filter(element => element['categoria']=== "Desayuno")
+      })
     }
+
   }
-
-}
-
-//this.menuBreakfast.gentmens() 
