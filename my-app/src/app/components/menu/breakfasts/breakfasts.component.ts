@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { menuModel } from 'src/app/models/menu.model';
 import { WaiqueenService} from '../../../services/waiqueen.service';
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'app-breakfasts',
@@ -10,15 +11,23 @@ import { WaiqueenService} from '../../../services/waiqueen.service';
 export class BreakfastsComponent implements OnInit {
 
 
-//variable para guardar loque retorna
-  menu:menuModel[]=[];
-
-  breakfasts:menuModel[]=[]
+  //variable de tipo array para guardar lo que retorna del servicio
+  menuBreakfast:menuModel[]=[];
+  //variable para guardar la data filtrada segun la categoria
+  bFast:menuModel[]=[];
  
-  constructor(private waiqueenservice:WaiqueenService ) { }
+  constructor(private waiqueenservice:WaiqueenService) { 
+    console.log("Servicio activo")
+  }
+
 
   ngOnInit() {
-  }
+        this.waiqueenservice.getmens().subscribe((resp:any)=>{
+        this.menuBreakfast=resp;
+        //= filter(this.menuBreakfast, 'Desayuno');
+        this.bFast  = this.menuBreakfast.filter(element => element['categoria']=== "Desayuno")
+      })
+    }
 
 }
 
