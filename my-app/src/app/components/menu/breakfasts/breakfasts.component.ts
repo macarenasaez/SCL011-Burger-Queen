@@ -40,4 +40,3 @@ export class BreakfastsComponent implements OnInit {
 
 }
 
-//this.menuBreakfast.gentmens() 
